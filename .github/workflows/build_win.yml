@@ -16,6 +16,10 @@ jobs:
       - name: Init submodules
         shell: cmd
         run: git submodule update --init --recursive
+
+      - name: Check C
+        shell: cmd
+        run: dir C:/
         
       - name: Compile
         run: ci/windows.ps1
