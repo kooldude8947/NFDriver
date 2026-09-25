@@ -68,7 +68,7 @@ class NFBuildWindows(NFBuild):
             rc_exe = 'rc.exe'
             link_exe = 'link.exe'
             cmake_call.extend([
-                'Visual Studio 17 2022 Win64',
+                'Visual Studio 17 2022',
                 '-DCMAKE_SYSTEM_NAME=WindowsStore',
                 '-DCMAKE_SYSTEM_VERSION=10.0'])
         cmake_result = subprocess.call(cmake_call, cwd=self.build_directory)
