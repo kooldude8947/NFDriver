@@ -84,6 +84,7 @@ class NFBuildWindows(NFBuild):
                 self.project_file,
                 target])
         else:
+            os.listdir(self.build_directory)
             result = subprocess.call([
                 'msbuild.exe',
                 os.path.join(self.build_directory, 'NFDriver.sln'),
