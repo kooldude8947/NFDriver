@@ -68,9 +68,7 @@ class NFBuildWindows(NFBuild):
             rc_exe = 'rc.exe'
             link_exe = 'link.exe'
             cmake_call.extend([
-                'Visual Studio 15 2017 Win64',
-                '-DCMAKE_SYSTEM_NAME=WindowsStore',
-                '-DCMAKE_SYSTEM_VERSION=10.0'])
+                'Visual Studio 17 2022'])
         cmake_result = subprocess.call(cmake_call, cwd=self.build_directory)
         if cmake_result != 0:
             sys.exit(cmake_result)
@@ -86,6 +84,7 @@ class NFBuildWindows(NFBuild):
                 self.project_file,
                 target])
         else:
+            os.listdir(self.build_directory)
             result = subprocess.call([
                 'msbuild.exe',
                 os.path.join(self.build_directory, 'NFDriver.sln'),

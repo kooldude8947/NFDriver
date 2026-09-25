@@ -1,0 +1,32 @@
+name: Build Windows
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11.9'
+      - name: Init submodules
+        shell: cmd
+        run: git submodule update --init --recursive
+        
+      - name: Compile
+        run: ci/windows.ps1
+        
+      - name: Upload artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: libNFDriver.zip
+          path: build/output/libNFDriver.zip
+          if-no-files-found: error
+          retention-days: 0

@@ -28,7 +28,7 @@ Write-Host $build
 try
 {
 	# Upgrade pip or else the CI will complain
-	c:\python27\python.exe -m pip install --upgrade pip
+	python.exe -m pip install --upgrade pip
 
 	# Start virtualenv
 	pip install virtualenv
