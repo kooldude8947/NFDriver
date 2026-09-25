@@ -13,13 +13,12 @@ jobs:
     runs-on: windows-2022
     steps:
       - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11.9'
       - name: Init submodules
         shell: cmd
         run: git submodule update --init --recursive
-
-      - name: Check
-        shell: cmd
-        run: dir "C:/"
         
       - name: Compile
         run: ci/windows.ps1
