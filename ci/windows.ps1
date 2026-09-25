@@ -28,10 +28,10 @@ Write-Host $build
 try
 {
 	# Upgrade pip or else the CI will complain
-	python.exe -m pip install --upgrade pip --upgrade setuptools
+	python.exe -m pip install --upgrade pip
 
 	# Start virtualenv
-	pip install virtualenv
+	pip install virtualenv setuptools
 	virtualenv nfdriver_env
 
 	& ./nfdriver_env/Scripts/activate.bat
