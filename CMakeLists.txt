@@ -16,7 +16,7 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.19)
 
 project(NFDriver)
 
@@ -64,8 +64,7 @@ if(WIN32)
   set(WINDOWS_FLAGS "${WINDOWS_FLAGS} /D_WINDOWS")
   set(WINDOWS_FLAGS "${WINDOWS_FLAGS} /DNOMINMAX")
   set(WINDOWS_FLAGS "${WINDOWS_FLAGS} /D_WIN32_IE=0x0700")
-  set(WINDOWS_FLAGS "${WINDOWS_FLAGS} /D_WIN32_WINNT=0xA00")
-  set(WINDOWS_FLAGS "${WINDOWS_FLAGS} /ZW")
+  set(WINDOWS_FLAGS "${WINDOWS_FLAGS} /D_WIN32_WINNT=0x0601")
   set(WINDOWS_FLAGS "${WINDOWS_FLAGS} /wd4447")
   set(WINDOWS_LINKER_FLAGS "${WINDOWS_LINKER_FLAGS} /INCREMENTAL:NO")
   set(WINDOWS_LINKER_FLAGS "${WINDOWS_LINKER_FLAGS} /OPT:ICF")
